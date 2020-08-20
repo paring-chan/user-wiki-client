@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import Root from "./Root";
 
+// eslint-disable-next-line
+Array.prototype.chunk = function(chunkSize) {
+    let array = this;
+    return [].concat.apply([],
+        array.map(function(elem, i) {
+            return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
+        })
+    );
+}
+
 ReactDOM.render(
     <Root/>,
     document.getElementById('root')
