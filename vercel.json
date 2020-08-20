@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api",
-      "destination": "http://home.minibox.pw/api"
+      "source": "/api/search/:query",
+      "destination": "http://home.minibox.pw/api/search/:query"
     }
   ]
 }
