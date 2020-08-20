@@ -45,7 +45,7 @@ class UserInfo extends Component {
                                             <CardActionArea>
                                                 <CardContent>
                                                     <Typography gutterBottom variant="h5" component="h2">
-                                                        {this.state.user.name}{this.status.user.isbot ? '[봇]' : null}
+                                                        {this.state.user.name}{this.state.user.isbot ? '[봇]' : null}
                                                     </Typography>
                                                     <Typography variant="body2" color="textSecondary" component="p">
                                                         ID: {this.state.user.id}<br/>
