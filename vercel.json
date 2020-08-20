@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api",
+      "destination": "http://home.minibox.pw/api"
+    }
+  ]
+}
