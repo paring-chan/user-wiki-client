@@ -13,7 +13,9 @@ class UserInfo extends Component {
 
     status = {
         online: '온라인',
-        idle: '다른 용무중'
+        idle: '자리비움',
+        dnd: '다른 용무중',
+        offline: '오프라인'
     }
 
     async componentDidMount() {
@@ -43,11 +45,12 @@ class UserInfo extends Component {
                                             <CardActionArea>
                                                 <CardContent>
                                                     <Typography gutterBottom variant="h5" component="h2">
-                                                        {this.state.user.name}
+                                                        {this.state.user.name}{this.status.user.isbot ? '[봇]' : null}
                                                     </Typography>
                                                     <Typography variant="body2" color="textSecondary" component="p">
                                                         ID: {this.state.user.id}<br/>
-                                                        가입일: {this.state.user.date}
+                                                        가입일: {this.state.user.date}<br/>
+                                                        상태: {this.status[this.state.user.status]}
                                                     </Typography>
                                                 </CardContent>
                                             </CardActionArea>
