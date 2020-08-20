@@ -3,6 +3,9 @@
     {
       "source": "/api/search/:query",
       "destination": "http://home.minibox.pw/api/search/:query"
+    },{
+      "source": "/api/user/:id",
+      "destination": "http://home.minibox.pw/api/search/:id"
     }
   ]
 }
