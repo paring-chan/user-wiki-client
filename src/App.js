@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route, Switch} from 'react-router-dom'
+import Home from "./views/Home";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
+import Header from "./components/global/Header";
+import Sidebar from "./components/global/Sidebar";
+import Toolbar from "@material-ui/core/Toolbar";
+import UserInfo from "./views/UserInfo";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [drawer, setDrawerOpen] = React.useState(false)
+    const theme = createMuiTheme({
+        palette: {
+            primary: {
+                main: '#2f3136'
+            },
+            secondary: {
+                main: '#fff'
+            },
+            type: 'dark'
+        }
+    })
+
+    return (
+        <MuiThemeProvider theme={theme}>
+            <CssBaseline/>
+            <Header setDrawer={setDrawerOpen} drawer={drawer}/>
+            <Sidebar open={drawer} setOpen={setDrawerOpen}/>
+            <Toolbar style={{marginBottom: 20}}/>
+            <Switch>
+                <Route exact path="/" component={props => <Home {...props}/>}/>
+                <Route path="/user/:id" component={props => <UserInfo {...props}/>}/>
+            </Switch>
+        </MuiThemeProvider>
+    );
 }
 
 export default App;
