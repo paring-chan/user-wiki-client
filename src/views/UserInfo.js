@@ -53,6 +53,7 @@ class UserInfo extends Component {
                                                             ID: {this.state.user.id}<br/>
                                                             가입일: {this.state.user.date}<br/>
                                                             상태: {this.status[this.state.user.status]}
+                                                            {this.state.user.activity}
                                                         </Typography>
                                                     </CardContent>
                                                 </CardActionArea>
